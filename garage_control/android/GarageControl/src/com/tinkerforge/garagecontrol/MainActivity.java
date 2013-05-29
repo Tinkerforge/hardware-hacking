@@ -212,9 +212,9 @@ public class MainActivity extends Activity {
 		trigger = (Button)findViewById(R.id.trigger);
 
 		SharedPreferences settings = getPreferences(0);
-		host.setText(settings.getString("host", "192.168.178.46"));
-		port.setText(settings.getString("port", "4223"));
-		uid.setText(settings.getString("uid", "ctG"));
+		host.setText(settings.getString("host", host.getText().toString()));
+		port.setText(settings.getString("port", port.getText().toString()));
+		uid.setText(settings.getString("uid", uid.getText().toString()));
 
 		connect.setOnClickListener(new ConnectClickListener());
 		trigger.setOnClickListener(new TriggerClickListener());
