@@ -229,7 +229,13 @@ public class MainActivity extends Activity {
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 
-		outState.putBoolean("connected", ipcon != null && ipcon.getConnectionState() == IPConnection.CONNECTION_STATE_CONNECTED);
+		boolean connected = false;
+
+		if (ipcon != null) {
+			connected = ipcon.getConnectionState() == IPConnection.CONNECTION_STATE_CONNECTED;
+		}
+
+		outState.putBoolean("connected", connected);
 	}
 
 	@Override
