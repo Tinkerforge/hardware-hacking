@@ -10,14 +10,15 @@ log.basicConfig(level=log.INFO)
 
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.ip_connection import Error
-from tinkerforge.bricklet_analog_in import AnalogIn
+from tinkerforge.bricklet_industrial_digital_in_4 import IndustrialDigitalIn4
+
 
 class SmokeDetector:
     HOST = 'localhost'
     PORT = 4223
 
     ipcon = None
-    ai = None
+    di = None
 
     def __init__(self):
         self.ipcon = IPConnection()
@@ -45,24 +46,22 @@ class SmokeDetector:
                 log.error('Enumerate Error: ' + str(e.description))
                 time.sleep(1)
 
-    def cb_voltage_reached(self, voltage):
+    def cb_interrupt(self, interrupt_mask, value_mask):
         log.warn('Fire! Fire!')
 
     def cb_enumerate(self, uid, connected_uid, position, hardware_version,
                      firmware_version, device_identifier, enumeration_type):
         if enumeration_type == IPConnection.ENUMERATION_TYPE_CONNECTED or \
            enumeration_type == IPConnection.ENUMERATION_TYPE_AVAILABLE:
-            if device_identifier == AnalogIn.DEVICE_IDENTIFIER:
+            if device_identifier == IndustrialDigitalIn4.DEVICE_IDENTIFIER:
                 try:
-                    self.ai = AnalogIn(uid, self.ipcon)
-                    self.ai.set_range(1)
-                    self.ai.set_debounce_period(10000)
-                    self.ai.register_callback(AnalogIn.CALLBACK_VOLTAGE_REACHED,
-                                              self.cb_voltage_reached)
-                    self.ai.set_voltage_callback_threshold('>', 1200, 0)
-                    log.info('Analog In initialized')
+                    self.di = IndustrialDigitalIn4(uid, self.ipcon)
+                    self.di.register_callback(IndustrialDigitalIn4.CALLBACK_INTERRUPT,
+                                              self.cb_interrupt)
+                    self.di.set_interrupt(1 << 0) # enable interrupt on input 0
+                    log.info('Digital In initialized')
                 except Error as e:
-                    log.error('Analog In init failed: ' + str(e.description))
+                    log.error('Digital In init failed: ' + str(e.description))
                     self.ai = None
 
     def cb_connected(self, connected_reason):

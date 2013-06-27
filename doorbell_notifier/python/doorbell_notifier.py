@@ -52,7 +52,7 @@ class Doorbell:
                      firmware_version, device_identifier, enumeration_type):
         if enumeration_type == IPConnection.ENUMERATION_TYPE_CONNECTED or \
            enumeration_type == IPConnection.ENUMERATION_TYPE_AVAILABLE:
-            if device_identifier == AnalogIn.DEVICE_IDENTIFIER:
+            if device_identifier == IndustrialDigitalIn4.DEVICE_IDENTIFIER:
                 try:
                     self.di = IndustrialDigitalIn4(uid, self.ipcon)
                     self.di.register_callback(IndustrialDigitalIn4.CALLBACK_INTERRUPT,
