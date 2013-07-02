@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-  
+# -*- coding: utf-8 -*-
 
 HOST = "localhost"
 PORT = 4223
@@ -20,4 +20,6 @@ if __name__ == "__main__":
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
 
-    iqr.set_monoflop(VALUE_A_ON, 255, 1500); # Set pins to high for 1.5 seconds
+    iqr.set_monoflop(VALUE_A_ON, 15, 1500); # Set pins to high for 1.5 seconds
+
+    ipcon.disconnect()

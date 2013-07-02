@@ -20,6 +20,8 @@ $iqr = new BrickletIndustrialQuadRelay($uid, $ipcon); // Create device object
 $ipcon->connect($host, $port); // Connect to brickd
 // Don't use device before ipcon is connected
 
-$iqr->setMonoflop($VALUE_A_ON, 255, 1500);
+$iqr->setMonoflop($VALUE_A_ON, 15, 1500);
+
+$ipcon->disconnect();
 
 ?>

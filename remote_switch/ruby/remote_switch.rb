@@ -20,4 +20,6 @@ iqr = BrickletIndustrialQuadRelay.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-iqr.set_monoflop VALUE_A_ON, 255, 1500
+iqr.set_monoflop VALUE_A_ON, 15, 1500
+
+ipcon.disconnect

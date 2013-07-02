@@ -19,7 +19,7 @@ int main() {
 
     // Create device object
     IndustrialQuadRelay iqr;
-    industrial_quad_relay_create(&iqr, UID, &ipcon); 
+    industrial_quad_relay_create(&iqr, UID, &ipcon);
 
     // Connect to brickd
     if(ipcon_connect(&ipcon, HOST, PORT) < 0) {
@@ -28,6 +28,8 @@ int main() {
     }
     // Don't use device before ipcon is connected
 
-	// Set pins to high for 1.5 seconds
-    industrial_quad_relay_set_monoflop(&iqr, VALUE_A_ON, 255, 1500); 
+    // Set pins to high for 1.5 seconds
+    industrial_quad_relay_set_monoflop(&iqr, VALUE_A_ON, 15, 1500);
+
+    ipcon_destroy(&ipcon); // Calls ipcon_disconnect internally
 }

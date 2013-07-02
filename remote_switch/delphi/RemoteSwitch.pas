@@ -1,4 +1,4 @@
-program ExampleSimple;
+program RemoteSwitch;
 
 {$ifdef MSWINDOWS}{$apptype CONSOLE}{$endif}
 {$ifdef FPC}{$mode OBJFPC}{$H+}{$endif}
@@ -7,7 +7,7 @@ uses
   SysUtils, IPConnection, BrickletIndustrialQuadRelay;
 
 type
-  TExample = class
+  TRemoteSwitch = class
   private
     ipcon: TIPConnection;
     iqr: TBrickletIndustrialQuadRelay;
@@ -25,9 +25,9 @@ const
   VALUE_B_OFF = (1 shl 1) or (1 shl 3); { Pin 1 and 3 high }
 
 var
-  e: TExample;
+  rs: TRemoteSwitch;
 
-procedure TExample.Execute;
+procedure TRemoteSwitch.Execute;
 begin
   { Create IP connection }
   ipcon := TIPConnection.Create;
@@ -40,11 +40,11 @@ begin
   { Don't use device before ipcon is connected }
 
   { Set pins to high for 1.5 seconds }
-  iqr.SetMonoflop(VALUE_A_ON, 255, 1500);
+  iqr.SetMonoflop(VALUE_A_ON, 15, 1500);
 end;
 
 begin
-  e := TExample.Create;
-  e.Execute;
-  e.Destroy;
+  rs := TRemoteSwitch.Create;
+  rs.Execute;
+  rs.Destroy;
 end.
