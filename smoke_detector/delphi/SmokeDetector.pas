@@ -4,7 +4,7 @@ program SmokeDetector;
 {$ifdef FPC}{$mode OBJFPC}{$H+}{$endif}
 
 uses
-  SysUtils, IPConnection, Device, BrickletAnalogIn;
+  SysUtils, IPConnection, Device, BrickletIndustrialDigitalIn4;
 
 const
   HOST = 'localhost';
@@ -14,7 +14,7 @@ type
   TSmokeDetector = class
   private
     ipcon: TIPConnection;
-    brickletAnalogIn: TBrickletAnalogIn;
+    brickletIndustrialDigitalIn4: TBrickletIndustrialDigitalIn4;
   public
     constructor Create;
     destructor Destroy; override;
@@ -24,7 +24,7 @@ type
                           const hardwareVersion: TVersionNumber;
                           const firmwareVersion: TVersionNumber;
                           const deviceIdentifier: word; const enumerationType: byte);
-    procedure VoltageReachedCB(sender: TBrickletAnalogIn; const voltage: word);
+    procedure InterruptCB(sender: TBrickletIndustrialDigitalIn4; const interruptMask: word; const valueMask: word);
     procedure Execute;
   end;
 
@@ -34,12 +34,12 @@ var
 constructor TSmokeDetector.Create;
 begin
   ipcon := nil;
-  brickletAnalogIn := nil;
+  brickletIndustrialDigitalIn4 := nil;
 end;
 
 destructor TSmokeDetector.Destroy;
 begin
-  if (brickletAnalogIn <> nil) then brickletAnalogIn.Destroy;
+  if (brickletIndustrialDigitalIn4 <> nil) then brickletIndustrialDigitalIn4.Destroy;
   if (ipcon <> nil) then ipcon.Destroy;
   inherited Destroy;
 end;
@@ -70,27 +70,28 @@ procedure TSmokeDetector.EnumerateCB(sender: TIPConnection; const uid: string;
 begin
   if ((enumerationType = IPCON_ENUMERATION_TYPE_CONNECTED) or
       (enumerationType = IPCON_ENUMERATION_TYPE_AVAILABLE)) then begin
-    if (deviceIdentifier = BRICKLET_ANALOG_IN_DEVICE_IDENTIFIER) then begin
+    if (deviceIdentifier = BRICKLET_INDUSTRIAL_DIGITAL_IN_4_DEVICE_IDENTIFIER) then begin
       try
-        brickletAnalogIn := TBrickletAnalogIn.Create(uid, ipcon);
-        brickletAnalogIn.SetRange(1);
-        brickletAnalogIn.SetDebouncePeriod(10000);
-        brickletAnalogIn.SetVoltageCallbackThreshold('>', 1200, 0);
-        brickletAnalogIn.OnVoltageReached := {$ifdef FPC}@{$endif}VoltageReachedCB;
-        WriteLn('Analog In initialized');
+        brickletIndustrialDigitalIn4 := TBrickletIndustrialDigitalIn4.Create(uid, ipcon);
+        brickletIndustrialDigitalIn4.SetDebouncePeriod(10000);
+        brickletIndustrialDigitalIn4.SetInterrupt(255);
+        brickletIndustrialDigitalIn4.OnInterrupt := {$ifdef FPC}@{$endif}InterruptCB;
+        WriteLn('Industrial Digital In 4 initialized');
       except
         on e: Exception do begin
-          WriteLn('Analog In init failed: ' + e.Message);
-          brickletAnalogIn := nil;
+          WriteLn('Industrial Digital In 4 init failed: ' + e.Message);
+          brickletIndustrialDigitalIn4 := nil;
         end;
       end;
     end;
   end;
 end;
 
-procedure TSmokeDetector.VoltageReachedCB(sender: TBrickletAnalogIn; const voltage: word);
+procedure TSmokeDetector.InterruptCB(sender: TBrickletIndustrialDigitalIn4; const interruptMask: word; const valueMask: word);
 begin
-  WriteLn('Fire! Fire!');
+  if (valueMask > 0) then begin
+    WriteLn('Fire! Fire!');
+  end;
 end;
 
 procedure TSmokeDetector.Execute;

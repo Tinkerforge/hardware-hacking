@@ -1,18 +1,20 @@
 import com.tinkerforge.IPConnection;
-import com.tinkerforge.BrickletAnalogIn;
+import com.tinkerforge.BrickletIndustrialDigitalIn4;
 
 class SmokeListener implements IPConnection.EnumerateListener,
                                IPConnection.ConnectedListener,
-                               BrickletAnalogIn.VoltageReachedListener {
+                               BrickletIndustrialDigitalIn4.InterruptListener {
 	private IPConnection ipcon = null;
-	private BrickletAnalogIn brickletAnalogIn = null;
+	private BrickletIndustrialDigitalIn4 brickletIndustrialDigitalIn4 = null;
 
 	public SmokeListener(IPConnection ipcon) {
 		this.ipcon = ipcon;
 	}
 
-	public void voltageReached(int illuminance) {
-		System.out.println("Fire! Fire!");
+	public void interrupt(int interruptMask, int valueMask) {
+		if(valueMask > 0) {
+			System.out.println("Fire! Fire!");
+		}
 	}
 
 	public void enumerate(String uid, String connectedUid, char position,
@@ -20,17 +22,16 @@ class SmokeListener implements IPConnection.EnumerateListener,
 	                      int deviceIdentifier, short enumerationType) {
 		if(enumerationType == IPConnection.ENUMERATION_TYPE_CONNECTED ||
 		   enumerationType == IPConnection.ENUMERATION_TYPE_AVAILABLE) {
-			if(deviceIdentifier == BrickletAnalogIn.DEVICE_IDENTIFIER) {
+			if(deviceIdentifier == BrickletIndustrialDigitalIn4.DEVICE_IDENTIFIER) {
 				try {
-					brickletAnalogIn = new BrickletAnalogIn(uid, ipcon);
-					brickletAnalogIn.setRange((short)1);
-					brickletAnalogIn.setDebouncePeriod(10000);
-					brickletAnalogIn.setVoltageCallbackThreshold('>', (short)1200, (short)0);
-					brickletAnalogIn.addVoltageReachedListener(this);
-					System.out.println("Analog In initialized");
+					brickletIndustrialDigitalIn4 = new BrickletIndustrialDigitalIn4(uid, ipcon);
+					brickletIndustrialDigitalIn4.setDebouncePeriod(10000);
+					brickletIndustrialDigitalIn4.setInterrupt(255);
+					brickletIndustrialDigitalIn4.addInterruptListener(this);
+					System.out.println("Industrial Digital In 4 initialized");
 				} catch(com.tinkerforge.TinkerforgeException e) {
-					brickletAnalogIn = null;
-					System.out.println("Analog In init failed: " + e);
+					brickletIndustrialDigitalIn4 = null;
+					System.out.println("Industrial Digital In 4 init failed: " + e);
 				}
 			}
 		}

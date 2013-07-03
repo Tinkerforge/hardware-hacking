@@ -1,18 +1,20 @@
 #include <stdio.h>
 
 #include "ip_connection.h"
-#include "bricklet_analog_in.h"
+#include "bricklet_industrial_digital_in_4.h"
 
 #define HOST "localhost"
 #define PORT 4223
 
 typedef struct {
 	IPConnection ipcon;
-	AnalogIn analog_in;
+	IndustrialDigitalIn4 idi4;
 } SmokeDetector;
 
-void cb_voltage_reached(uint16_t voltage, void *user_data) {
-	printf("Fire! Fire!\n");
+void cb_interrupt(uint16_t interrupt_mask, uint16_t value_mask, void *user_data) {
+	if(value_mask > 0) {
+		printf("Fire! Fire!\n");
+	}
 }
 
 void cb_connected(uint8_t connected_reason, void *user_data) {
@@ -41,20 +43,19 @@ void cb_enumerate(const char *uid, const char *connected_uid,
 
 	if(enumeration_type == IPCON_ENUMERATION_TYPE_CONNECTED ||
 	   enumeration_type == IPCON_ENUMERATION_TYPE_AVAILABLE) {
-		if(device_identifier == ANALOG_IN_DEVICE_IDENTIFIER) {
-			analog_in_create(&sd->analog_in, uid, &sd->ipcon);
-			analog_in_set_range(&sd->analog_in, 1);
-			analog_in_set_debounce_period(&sd->analog_in, 10000);
-			analog_in_register_callback(&sd->analog_in,
-			                            ANALOG_IN_CALLBACK_VOLTAGE_REACHED,
-			                            (void *)cb_voltage_reached,
-			                            (void *)sd);
+		if(device_identifier == INDUSTRIAL_DIGITAL_IN_4_DEVICE_IDENTIFIER) {
+			industrial_digital_in_4_create(&sd->idi4, uid, &sd->ipcon);
+			industrial_digital_in_4_set_debounce_period(&sd->idi4, 10000);
+			industrial_digital_in_4_register_callback(&sd->idi4,
+			                                          INDUSTRIAL_DIGITAL_IN_4_CALLBACK_INTERRUPT,
+			                                          (void *)cb_interrupt,
+			                                          (void *)sd);
 
-			int rc = analog_in_set_voltage_callback_threshold(&sd->analog_in, '>', 1200, 0);
+			int rc = industrial_digital_in_4_set_interrupt(&sd->idi4, 255);
 			if(rc < 0) {
-				fprintf(stderr, "Analog In init failed: %d\n", rc);
+				fprintf(stderr, "Industrial Digital In 4 init failed: %d\n", rc);
 			} else {
-				printf("Analog In initialized\n");
+				printf("Industrial Digital In 4 initialized\n");
 			}
 		}
 	}

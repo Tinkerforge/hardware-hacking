@@ -5,10 +5,13 @@ Module SmokeDetector
     Const PORT As Integer = 4223
 
     Private ipcon As IPConnection = Nothing
-    Private brickletAnalogIn As BrickletAnalogIn = Nothing
+    Private brickletIndustrialDigitalIn4 As BrickletIndustrialDigitalIn4 = Nothing
 
-    Sub VoltageReachedCB(ByVal sender As BrickletAnalogIn, ByVal voltage As Integer)
-        System.Console.WriteLine("Fire! Fire!")
+    Sub InterruptCB(ByVal sender As BrickletIndustrialDigitalIn4,
+                    ByVal interruptMask As Integer, ByVal valueMask As Integer)
+        If valueMask > 0 Then
+            System.Console.WriteLine("Fire! Fire!")
+        End If
     End Sub
 
     Sub EnumerateCB(ByVal sender As IPConnection, ByVal uid As String, _
@@ -17,17 +20,16 @@ Module SmokeDetector
                     ByVal deviceIdentifier As Integer, ByVal enumerationType As Short)
         If enumerationType = IPConnection.ENUMERATION_TYPE_CONNECTED Or _
            enumerationType = IPConnection.ENUMERATION_TYPE_AVAILABLE Then
-            If deviceIdentifier = BrickletAnalogIn.DEVICE_IDENTIFIER Then
+            If deviceIdentifier = BrickletIndustrialDigitalIn4.DEVICE_IDENTIFIER Then
                 Try
-                    brickletAnalogIn = New BrickletAnalogIn(UID, ipcon)
-                    brickletAnalogIn.SetRange(1)
-                    brickletAnalogIn.SetDebouncePeriod(10000)
-                    brickletAnalogIn.SetVoltageCallbackThreshold(">"C, 1200, 0)
-                    AddHandler brickletAnalogIn.VoltageReached, AddressOf VoltageReachedCB
-                    System.Console.WriteLine("Analog In initialized")
+                    brickletIndustrialDigitalIn4 = New BrickletIndustrialDigitalIn4(UID, ipcon)
+                    brickletIndustrialDigitalIn4.SetDebouncePeriod(10000)
+                    brickletIndustrialDigitalIn4.SetInterrupt(15)
+                    AddHandler brickletIndustrialDigitalIn4.Interrupt, AddressOf InterruptCB
+                    System.Console.WriteLine("Industrial Digital In 4 initialized")
                 Catch e As TinkerforgeException
-                    System.Console.WriteLine("Analog In init failed: " + e.Message)
-                    brickletAnalogIn = Nothing
+                    System.Console.WriteLine("Industrial Digital In 4 init failed: " + e.Message)
+                    brickletIndustrialDigitalIn4 = Nothing
                 End Try
             End If
         End If

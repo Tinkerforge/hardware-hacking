@@ -1,10 +1,10 @@
 <?php
 
 require_once('Tinkerforge/IPConnection.php');
-require_once('Tinkerforge/BrickletAnalogIn.php');
+require_once('Tinkerforge/BrickletIndustrialDigitalIn4.php');
 
 use Tinkerforge\IPConnection;
-use Tinkerforge\BrickletAnalogIn;
+use Tinkerforge\BrickletIndustrialDigitalIn4;
 
 class SmokeDetector
 {
@@ -14,7 +14,7 @@ class SmokeDetector
 	public function __construct()
     {
 		$this->ipcon = new IPConnection();
-		$this->brickletAnalogIn = null;
+		$this->brickletIndustrialDigitalIn4 = null;
 
 		while(true) {
 			try {
@@ -26,9 +26,9 @@ class SmokeDetector
 		}
 
 		$this->ipcon->registerCallback(IPConnection::CALLBACK_ENUMERATE,
-		                               array($this, 'enumerateCB'));
+		                               array($this, 'cb_enumerate'));
 		$this->ipcon->registerCallback(IPConnection::CALLBACK_CONNECTED,
-		                               array($this, 'connectedCB'));
+		                               array($this, 'cb_connected'));
 
 		while(true) {
 			try {
@@ -40,34 +40,35 @@ class SmokeDetector
 		}
 	}
 
-	function voltageReachedCB($voltage)
+	function cb_interrupt($interruptMask, $valueMask)
 	{
-		echo "Fire! Fire!\n";
+		if ($valueMask > 0) {
+			echo "Fire! Fire!\n";
+		}
 	}
 
-	function enumerateCB($uid, $connectedUid, $position, $hardwareVersion,
-	                     $firmwareVersion, $deviceIdentifier, $enumerationType)
+	function cb_enumerate($uid, $connectedUid, $position, $hardwareVersion,
+	                      $firmwareVersion, $deviceIdentifier, $enumerationType)
 	{
 		if($enumerationType == IPConnection::ENUMERATION_TYPE_CONNECTED ||
 		   $enumerationType == IPConnection::ENUMERATION_TYPE_AVAILABLE) {
-			if($deviceIdentifier == BrickletAnalogIn::DEVICE_IDENTIFIER) {
+			if($deviceIdentifier == BrickletIndustrialDigitalIn4::DEVICE_IDENTIFIER) {
 				try {
-					$this->brickletAnalogIn = new BrickletAnalogIn($uid, $this->ipcon);
-					$this->brickletAnalogIn->setRange(1);
-					$this->brickletAnalogIn->setDebouncePeriod(10000);
-					$this->brickletAnalogIn->setVoltageCallbackThreshold('>', 1200, 0);
-					$this->brickletAnalogIn->registerCallback(BrickletAnalogIn::CALLBACK_VOLTAGE_REACHED,
-					                                          array($this, 'voltageReachedCB'));
-					echo "Analog In initialized\n";
+					$this->brickletIndustrialDigitalIn4 = new BrickletIndustrialDigitalIn4($uid, $this->ipcon);
+					$this->brickletIndustrialDigitalIn4->setDebouncePeriod(10000);
+					$this->brickletIndustrialDigitalIn4->setInterrupt(15);
+					$this->brickletIndustrialDigitalIn4->registerCallback(BrickletIndustrialDigitalIn4::CALLBACK_INTERRUPT,
+					                                                      array($this, 'cb_interrupt'));
+					echo "Industrial Digital In 4 initialized\n";
 				} catch(Exception $e) {
-					$this->brickletAnalogIn = null;
-					echo "Analog In init failed: $e\n";
+					$this->brickletIndustrialDigitalIn4 = null;
+					echo "Industrial Digital In 4 init failed: $e\n";
 				}
 			}
 		}
 	}
 
-	function connectedCB($connectedReason)
+	function cb_connected($connectedReason)
 	{
 		if($connectedReason == IPConnection::CONNECT_REASON_AUTO_RECONNECT) {
 			echo "Auto Reconnect\n";
@@ -84,8 +85,8 @@ class SmokeDetector
 	}
 }
 
-$weatherStation = new SmokeDetector();
+$smokeDetector = new SmokeDetector();
 echo "Press ctrl+c to exit\n";
-$weatherStation->ipcon->dispatchCallbacks(-1);
+$smokeDetector->ipcon->dispatchCallbacks(-1);
 
 ?>

@@ -18,7 +18,7 @@ class SmokeDetector:
     PORT = 4223
 
     ipcon = None
-    di = None
+    idi4 = None
 
     def __init__(self):
         self.ipcon = IPConnection()
@@ -55,14 +55,15 @@ class SmokeDetector:
            enumeration_type == IPConnection.ENUMERATION_TYPE_AVAILABLE:
             if device_identifier == IndustrialDigitalIn4.DEVICE_IDENTIFIER:
                 try:
-                    self.di = IndustrialDigitalIn4(uid, self.ipcon)
-                    self.di.register_callback(IndustrialDigitalIn4.CALLBACK_INTERRUPT,
-                                              self.cb_interrupt)
-                    self.di.set_interrupt(1 << 0) # enable interrupt on input 0
-                    log.info('Digital In initialized')
+                    self.idi4 = IndustrialDigitalIn4(uid, self.ipcon)
+                    self.idi4.set_debounce_period(10000)
+                    self.idi4.set_interrupt(15)
+                    self.idi4.register_callback(IndustrialDigitalIn4.CALLBACK_INTERRUPT,
+                                                self.cb_interrupt)
+                    log.info('Industrial Digital In 4 initialized')
                 except Error as e:
-                    log.error('Digital In init failed: ' + str(e.description))
-                    self.ai = None
+                    log.error('Industrial Digital In 4 init failed: ' + str(e.description))
+                    self.idi4 = None
 
     def cb_connected(self, connected_reason):
         if connected_reason == IPConnection.CONNECT_REASON_AUTO_RECONNECT:

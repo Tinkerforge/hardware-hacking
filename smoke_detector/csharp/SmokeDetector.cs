@@ -6,11 +6,13 @@ class SmokeDetector
 	private static int PORT = 4223;
 
 	private static IPConnection ipcon = null;
-	private static BrickletAnalogIn brickletAnalogIn = null;
+	private static BrickletIndustrialDigitalIn4 brickletIndustrialDigitalIn4 = null;
 
-	static void VoltageReachedCB(BrickletAnalogIn sender, int voltage)
+	static void InterruptCB(BrickletIndustrialDigitalIn4 sender, int interruptMask, int valueMask)
 	{
-		System.Console.WriteLine("Fire! Fire!");
+		if(valueMask > 0) {
+			System.Console.WriteLine("Fire! Fire!");
+		}
 	}
 
 	static void EnumerateCB(IPConnection sender, string UID, string connectedUID, char position,
@@ -20,21 +22,20 @@ class SmokeDetector
 		if(enumerationType == IPConnection.ENUMERATION_TYPE_CONNECTED ||
 		   enumerationType == IPConnection.ENUMERATION_TYPE_AVAILABLE)
 		{
-			if(deviceIdentifier == BrickletAnalogIn.DEVICE_IDENTIFIER)
+			if(deviceIdentifier == BrickletIndustrialDigitalIn4.DEVICE_IDENTIFIER)
 			{
 				try
 				{
-					brickletAnalogIn = new BrickletAnalogIn(UID, ipcon);
-					brickletAnalogIn.SetRange(1);
-					brickletAnalogIn.SetDebouncePeriod(10000);
-					brickletAnalogIn.SetVoltageCallbackThreshold('>', 1200, 0);
-					brickletAnalogIn.VoltageReached += VoltageReachedCB;
-					System.Console.WriteLine("Analog In initialized");
+					brickletIndustrialDigitalIn4 = new BrickletIndustrialDigitalIn4(UID, ipcon);
+					brickletIndustrialDigitalIn4.SetDebouncePeriod(10000);
+					brickletIndustrialDigitalIn4.SetInterrupt(255);
+					brickletIndustrialDigitalIn4.Interrupt += InterruptCB;
+					System.Console.WriteLine("Industrial Digital In 4 initialized");
 				}
 				catch(TinkerforgeException e)
 				{
-					System.Console.WriteLine("Analog In init failed: " + e.Message);
-					brickletAnalogIn = null;
+					System.Console.WriteLine("Industrial Digital In 4 init failed: " + e.Message);
+					brickletIndustrialDigitalIn4 = null;
 				}
 			}
 		}

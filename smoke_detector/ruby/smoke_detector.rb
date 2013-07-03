@@ -2,14 +2,14 @@
 # -*- ruby encoding: utf-8 -*-
 
 require 'tinkerforge/ip_connection'
-require 'tinkerforge/bricklet_analog_in'
+require 'tinkerforge/bricklet_industrial_digital_in_4'
 
 include Tinkerforge
 
 HOST = 'localhost'
 PORT = 4223
 
-analog_in = nil
+idi4 = nil
 
 ipcon = IPConnection.new
 while true
@@ -27,19 +27,20 @@ ipcon.register_callback(IPConnection::CALLBACK_ENUMERATE) do |uid, connected_uid
                                                               device_identifier, enumeration_type|
   if enumeration_type == IPConnection::ENUMERATION_TYPE_CONNECTED or
      enumeration_type == IPConnection::ENUMERATION_TYPE_AVAILABLE
-    if device_identifier == BrickletAnalogIn::DEVICE_IDENTIFIER
+    if device_identifier == BrickletIndustrialDigitalIn4::DEVICE_IDENTIFIER
       begin
-        analog_in = BrickletAnalogIn.new uid, ipcon
-        analog_in.set_range 1
-        analog_in.set_debounce_period 10000
-        analog_in.set_voltage_callback_threshold '>', 1200, 0
-        analog_in.register_callback(BrickletAnalogIn::CALLBACK_VOLTAGE_REACHED) do |voltage|
-          puts 'Fire! Fire!'
+        idi4 = BrickletIndustrialDigitalIn4.new uid, ipcon
+        idi4.set_debounce_period 10000
+        idi4.set_interrupt 15
+        idi4.register_callback(BrickletIndustrialDigitalIn4::CALLBACK_INTERRUPT) do |interrupt_mask, value_mask|
+          if value_mask > 0
+            puts 'Fire! Fire!'
+          end
         end
-        puts 'Analog In initialized'
+        puts 'Industrial Digital In 4 initialized'
       rescue Exception => e
-        analog_in = nil
-        puts 'Analog In init failed: ' + e
+        idi4 = nil
+        puts 'Industrial Digital In 4 init failed: ' + e
       end
     end
   end
