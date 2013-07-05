@@ -15,7 +15,8 @@ namespace GarageControl
         private IPConnection ipcon = null;
         private BrickletIndustrialQuadRelay relay = null;
         private BackgroundWorker connectWorker = null;
-        private BackgroundWorker disconnectWorker = null;
+		private BackgroundWorker disconnectWorker = null;
+		private BackgroundWorker triggerWorker = null;
         private IsolatedStorageSettings settings = IsolatedStorageSettings.ApplicationSettings;
 
         enum ConnectResult
@@ -40,7 +41,10 @@ namespace GarageControl
 
             disconnectWorker = new BackgroundWorker();
             disconnectWorker.DoWork += DisconnectWorker_DoWork;
-            disconnectWorker.RunWorkerCompleted += DisconnectWorker_RunWorkerCompleted;
+			disconnectWorker.RunWorkerCompleted += DisconnectWorker_RunWorkerCompleted;
+
+			triggerWorker = new BackgroundWorker();
+			triggerWorker.DoWork += TriggerWorker_DoWork;
         }
         
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -200,6 +204,17 @@ namespace GarageControl
             connect.IsEnabled = true;
         }
 
+		private void TriggerWorker_DoWork(object sender, DoWorkEventArgs e)
+		{
+			try
+			{
+				relay.SetMonoflop(1 << 0, 1 << 0, 1500);
+			}
+			catch (TinkerforgeException)
+			{
+			}
+		}
+
         private void Connect()
         {
             if (host.Text.Length == 0 || port.Text.Length == 0 || uid.Text.Length == 0)
@@ -241,8 +256,8 @@ namespace GarageControl
         }
 
         private void Trigger_Click(object sender, RoutedEventArgs e)
-        {
-            relay.SetMonoflop(1 << 0, 1 << 0, 1500);
+		{
+			triggerWorker.RunWorkerAsync();
         }
     }
 }
