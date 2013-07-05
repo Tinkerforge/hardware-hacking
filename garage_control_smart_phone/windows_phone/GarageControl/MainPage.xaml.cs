@@ -15,8 +15,8 @@ namespace GarageControl
         private IPConnection ipcon = null;
         private BrickletIndustrialQuadRelay relay = null;
         private BackgroundWorker connectWorker = null;
-		private BackgroundWorker disconnectWorker = null;
-		private BackgroundWorker triggerWorker = null;
+        private BackgroundWorker disconnectWorker = null;
+        private BackgroundWorker triggerWorker = null;
         private IsolatedStorageSettings settings = IsolatedStorageSettings.ApplicationSettings;
 
         enum ConnectResult
@@ -41,36 +41,38 @@ namespace GarageControl
 
             disconnectWorker = new BackgroundWorker();
             disconnectWorker.DoWork += DisconnectWorker_DoWork;
-			disconnectWorker.RunWorkerCompleted += DisconnectWorker_RunWorkerCompleted;
+            disconnectWorker.RunWorkerCompleted += DisconnectWorker_RunWorkerCompleted;
 
-			triggerWorker = new BackgroundWorker();
-			triggerWorker.DoWork += TriggerWorker_DoWork;
+            triggerWorker = new BackgroundWorker();
+            triggerWorker.DoWork += TriggerWorker_DoWork;
         }
-        
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-			bool connected = false;
+            bool connected = false;
 
             try
             {
                 host.Text = settings["host"] as string;
                 port.Text = settings["port"] as string;
-				uid.Text = settings["uid"] as string;
-				connected = settings["connected"].Equals(true);
+                uid.Text = settings["uid"] as string;
+                connected = settings["connected"].Equals(true);
             }
             catch (KeyNotFoundException)
             {
                 settings["host"] = host.Text;
                 settings["port"] = port.Text;
-				settings["uid"] = uid.Text;
-				settings["connected"] = connected;
+                settings["uid"] = uid.Text;
+                settings["connected"] = connected;
                 settings.Save();
             }
 
-			if (connected && (ipcon == null || ipcon.GetConnectionState() == IPConnection.CONNECTION_STATE_DISCONNECTED))
-			{
-				Connect();
-			}
+            if (connected &&
+                (ipcon == null ||
+                 ipcon.GetConnectionState() == IPConnection.CONNECTION_STATE_DISCONNECTED))
+            {
+                Connect();
+            }
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -79,16 +81,16 @@ namespace GarageControl
             settings["port"] = port.Text;
             settings["uid"] = uid.Text;
 
-			if (ipcon != null && ipcon.GetConnectionState() == IPConnection.CONNECTION_STATE_CONNECTED)
-			{
-				settings["connected"] = true;
-			}
-			else
-			{
-				settings["connected"] = false;
-			}
+            if (ipcon != null && ipcon.GetConnectionState() == IPConnection.CONNECTION_STATE_CONNECTED)
+            {
+                settings["connected"] = true;
+            }
+            else
+            {
+                settings["connected"] = false;
+            }
 
-			settings.Save();
+            settings.Save();
         }
 
         private void ConnectWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -157,14 +159,16 @@ namespace GarageControl
             }
             else
             {
+                string message;
                 MessageBoxResult retry;
 
                 if (result == ConnectResult.NO_CONNECTION) {
-                    retry = MessageBox.Show("Could not connect to " + host.Text + ":" + port.Text + ". Retry?", "Error", MessageBoxButton.OKCancel);
-
+                    message = "Could not connect to " + host.Text + ":" + port.Text + ". Retry?";
                 } else { // ConnectResult.NO_DEVICE
-                    retry = MessageBox.Show("Could not find Industrial Quad Relay Bricklet [" + uid.Text + "]. Retry?", "Error", MessageBoxButton.OKCancel);
+                    message = "Could not find Industrial Quad Relay Bricklet [" + uid.Text + "]. Retry?";
                 }
+
+                retry = MessageBox.Show(message, "Error", MessageBoxButton.OKCancel);
 
                 if (retry == MessageBoxResult.OK) {
                     Connect();
@@ -204,16 +208,16 @@ namespace GarageControl
             connect.IsEnabled = true;
         }
 
-		private void TriggerWorker_DoWork(object sender, DoWorkEventArgs e)
-		{
-			try
-			{
-				relay.SetMonoflop(1 << 0, 1 << 0, 1500);
-			}
-			catch (TinkerforgeException)
-			{
-			}
-		}
+        private void TriggerWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                relay.SetMonoflop(1 << 0, 1 << 0, 1500);
+            }
+            catch (TinkerforgeException)
+            {
+            }
+        }
 
         private void Connect()
         {
@@ -256,8 +260,8 @@ namespace GarageControl
         }
 
         private void Trigger_Click(object sender, RoutedEventArgs e)
-		{
-			triggerWorker.RunWorkerAsync();
+        {
+            triggerWorker.RunWorkerAsync();
         }
     }
 }
