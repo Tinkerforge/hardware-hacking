@@ -119,7 +119,8 @@ namespace GarageControl
                 byte[] firmwareVersion;
                 int deviceIdentifier;
 
-                relay.GetIdentity(out uid, out connectedUid, out position, out hardwareVersion, out firmwareVersion, out deviceIdentifier);
+                relay.GetIdentity(out uid, out connectedUid, out position,
+                                  out hardwareVersion, out firmwareVersion, out deviceIdentifier);
 
                 if (deviceIdentifier != BrickletIndustrialQuadRelay.DEVICE_IDENTIFIER)
                 {
