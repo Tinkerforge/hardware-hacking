@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Threading;
 using Tinkerforge;
 
-class RemoteSwitch : Form
+class RemoteSwitchGUI : Form
 {
 	private static string HOST = "localhost";
 	private static int PORT = 4223;
@@ -18,9 +18,9 @@ class RemoteSwitch : Form
 	private IPConnection ipcon = null;
 	private BrickletIndustrialQuadRelay brickletIndustrialQuadRelay = null;
 
-	public RemoteSwitch()
+	public RemoteSwitchGUI()
 	{
-		Text = "Remote Switch";
+		Text = "Remote Switch GUI 1.0.0";
 		Size = new Size(300, 500);
 		MinimumSize = new Size(260, 200);
 
@@ -173,6 +173,6 @@ class RemoteSwitch : Form
 
 	static public void Main()
 	{
-		Application.Run(new RemoteSwitch());
+		Application.Run(new RemoteSwitchGUI());
 	}
 }
