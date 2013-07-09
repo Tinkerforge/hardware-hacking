@@ -12,18 +12,19 @@ from tinkerforge.ip_connection import IPConnection
 from tinkerforge.ip_connection import Error
 from tinkerforge.bricklet_industrial_digital_in_4 import IndustrialDigitalIn4
 
-class Doorbell:
+
+class DoorbellNotifier:
     HOST = 'localhost'
     PORT = 4223
 
     ipcon = None
-    di = None
+    idi4 = None
 
     def __init__(self):
         self.ipcon = IPConnection()
         while True:
             try:
-                self.ipcon.connect(Doorbell.HOST, Doorbell.PORT)
+                self.ipcon.connect(DoorbellNotifier.HOST, DoorbellNotifier.PORT)
                 break
             except Error as e:
                 log.error('Connection Error: ' + str(e.description))
@@ -46,7 +47,8 @@ class Doorbell:
                 time.sleep(1)
 
     def cb_interrupt(self, interrupt_mask, value_mask):
-        log.warn('Ring Ring Ring!')
+        if value_mask > 0:
+            log.warn('Ring Ring Ring!')
 
     def cb_enumerate(self, uid, connected_uid, position, hardware_version,
                      firmware_version, device_identifier, enumeration_type):
@@ -54,14 +56,15 @@ class Doorbell:
            enumeration_type == IPConnection.ENUMERATION_TYPE_AVAILABLE:
             if device_identifier == IndustrialDigitalIn4.DEVICE_IDENTIFIER:
                 try:
-                    self.di = IndustrialDigitalIn4(uid, self.ipcon)
-                    self.di.register_callback(IndustrialDigitalIn4.CALLBACK_INTERRUPT,
-                                              self.cb_interrupt)
-                    self.di.set_interrupt(1 << 0) # enable interrupt on input 0
-                    log.info('Digital In initialized')
+                    self.idi4 = IndustrialDigitalIn4(uid, self.ipcon)
+                    self.idi4.set_debounce_period(10000)
+                    self.idi4.set_interrupt(15)
+                    self.idi4.register_callback(IndustrialDigitalIn4.CALLBACK_INTERRUPT,
+                                                self.cb_interrupt)
+                    log.info('Industrial Digital In 4 initialized')
                 except Error as e:
-                    log.error('Digital In init failed: ' + str(e.description))
-                    self.di = None
+                    log.error('Industrial Digital In 4 init failed: ' + str(e.description))
+                    self.idi4 = None
 
     def cb_connected(self, connected_reason):
         if connected_reason == IPConnection.CONNECT_REASON_AUTO_RECONNECT:
@@ -76,15 +79,15 @@ class Doorbell:
                     time.sleep(1)
 
 if __name__ == "__main__":
-    log.info('Doorbell: Start')
+    log.info('Doorbell Notifier: Start')
 
-    doorbell = Doorbell()
+    doorbell_notifier = DoorbellNotifier()
 
     if sys.version_info < (3, 0):
         input = raw_input # Compatibility for Python 2.x
     input('Press key to exit\n')
 
-    if doorbell.ipcon != None:
-        doorbell.ipcon.disconnect()
+    if doorbell_notifier.ipcon != None:
+        doorbell_notifier.ipcon.disconnect()
 
-    log.info(': End')
+    log.info('Doorbell Notifier: End')

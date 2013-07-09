@@ -74,7 +74,7 @@ begin
       try
         brickletIndustrialDigitalIn4 := TBrickletIndustrialDigitalIn4.Create(uid, ipcon);
         brickletIndustrialDigitalIn4.SetDebouncePeriod(10000);
-        brickletIndustrialDigitalIn4.SetInterrupt(255);
+        brickletIndustrialDigitalIn4.SetInterrupt(15);
         brickletIndustrialDigitalIn4.OnInterrupt := {$ifdef FPC}@{$endif}InterruptCB;
         WriteLn('Industrial Digital In 4 initialized');
       except

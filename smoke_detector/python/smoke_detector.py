@@ -47,7 +47,8 @@ class SmokeDetector:
                 time.sleep(1)
 
     def cb_interrupt(self, interrupt_mask, value_mask):
-        log.warn('Fire! Fire!')
+        if value_mask > 0:
+            log.warn('Fire! Fire!')
 
     def cb_enumerate(self, uid, connected_uid, position, hardware_version,
                      firmware_version, device_identifier, enumeration_type):

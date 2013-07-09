@@ -51,7 +51,7 @@ void cb_enumerate(const char *uid, const char *connected_uid,
 			                                          (void *)cb_interrupt,
 			                                          (void *)sd);
 
-			int rc = industrial_digital_in_4_set_interrupt(&sd->idi4, 255);
+			int rc = industrial_digital_in_4_set_interrupt(&sd->idi4, 15);
 			if(rc < 0) {
 				fprintf(stderr, "Industrial Digital In 4 init failed: %d\n", rc);
 			} else {

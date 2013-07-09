@@ -26,7 +26,7 @@ class SmokeListener implements IPConnection.EnumerateListener,
 				try {
 					brickletIndustrialDigitalIn4 = new BrickletIndustrialDigitalIn4(uid, ipcon);
 					brickletIndustrialDigitalIn4.setDebouncePeriod(10000);
-					brickletIndustrialDigitalIn4.setInterrupt(255);
+					brickletIndustrialDigitalIn4.setInterrupt(15);
 					brickletIndustrialDigitalIn4.addInterruptListener(this);
 					System.out.println("Industrial Digital In 4 initialized");
 				} catch(com.tinkerforge.TinkerforgeException e) {

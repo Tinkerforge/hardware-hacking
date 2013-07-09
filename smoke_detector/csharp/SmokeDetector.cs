@@ -28,7 +28,7 @@ class SmokeDetector
 				{
 					brickletIndustrialDigitalIn4 = new BrickletIndustrialDigitalIn4(UID, ipcon);
 					brickletIndustrialDigitalIn4.SetDebouncePeriod(10000);
-					brickletIndustrialDigitalIn4.SetInterrupt(255);
+					brickletIndustrialDigitalIn4.SetInterrupt(15);
 					brickletIndustrialDigitalIn4.Interrupt += InterruptCB;
 					System.Console.WriteLine("Industrial Digital In 4 initialized");
 				}
