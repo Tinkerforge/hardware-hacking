@@ -192,7 +192,7 @@ public class MainActivity extends Activity {
 		
 		protected Void doInBackground(Void... params) {
 			try {
-				relay.setMonoflop(selectionMask, 15, 1500);
+				relay.setMonoflop(selectionMask, 15, 500);
 			} catch (TinkerforgeException e) {
 			}
 

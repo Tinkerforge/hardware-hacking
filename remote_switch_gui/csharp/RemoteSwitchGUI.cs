@@ -117,7 +117,7 @@ class RemoteSwitchGUI : Form
 
 		try
 		{
-			brickletIndustrialQuadRelay.SetMonoflop(selectionMask, 255, 1500);
+			brickletIndustrialQuadRelay.SetMonoflop(selectionMask, 15, 500);
 			Log("Triggered '" + name + "'");
 		}
 		catch(TinkerforgeException e)
