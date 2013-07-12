@@ -1,0 +1,48 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="PowerOutletControl.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="POWER OUTLET CONTROL" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="remote" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+        <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBlock TextWrapping="Wrap" Text="Host" VerticalAlignment="Top"/>
+            <TextBox x:Name="host" Height="72" TextWrapping="Wrap" Text="192.168.178.46" VerticalAlignment="Top"/>
+            <TextBlock TextWrapping="Wrap" Text="Port" VerticalAlignment="Top"/>
+            <TextBox x:Name="port" InputScope="Number" Height="72" TextWrapping="Wrap" Text="4223" VerticalAlignment="Top"/>
+            <TextBlock TextWrapping="Wrap" Text="UID (Industrial Quad Relay Bricklet)" VerticalAlignment="Top"/>
+            <TextBox x:Name="uid" Height="72" TextWrapping="Wrap" Text="cuw" VerticalAlignment="Top"/>
+            <ProgressBar x:Name="progress" Height="10" VerticalAlignment="Top"/>
+            <Button x:Name="connect" Content="Connect" VerticalAlignment="Top" Click="Connect_Click"/>
+            <StackPanel Orientation="Horizontal" Height="100" HorizontalAlignment="Center">
+                <Button x:Name="a_on" Content="A On" HorizontalAlignment="Center" Click="Aon_Click"/>
+                <Button x:Name="a_off" Content="A Off" HorizontalAlignment="Center" Click="Aoff_Click"/>
+                <Button x:Name="b_on" Content="B On" HorizontalAlignment="Center" Click="Bon_Click"/>
+                <Button x:Name="b_off" Content="B Off" HorizontalAlignment="Center" Click="Boff_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+    </Grid>
+ 
+</phone:PhoneApplicationPage>

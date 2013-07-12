@@ -8,7 +8,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Tinkerforge;
 
-namespace GarageControl
+namespace PowerOutletControl
 {
     public partial class MainPage : PhoneApplicationPage
     {
@@ -33,7 +33,10 @@ namespace GarageControl
             progress.Visibility = Visibility.Collapsed;
             progress.IsIndeterminate = true;
 
-            trigger.IsEnabled = false;
+			a_on.IsEnabled = false;
+			a_off.IsEnabled = false;
+			b_on.IsEnabled = false;
+			b_off.IsEnabled = false;
 
             connectWorker = new BackgroundWorker();
             connectWorker.DoWork += ConnectWorker_DoWork;
@@ -156,7 +159,10 @@ namespace GarageControl
             {
                 connect.Content = "Disconnect";
                 connect.IsEnabled = true;
-                trigger.IsEnabled = true;
+				a_on.IsEnabled = true;
+				a_off.IsEnabled = true;
+				b_on.IsEnabled = true;
+				b_off.IsEnabled = true;
             }
             else
             {
@@ -210,10 +216,12 @@ namespace GarageControl
         }
 
         private void TriggerWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
+		{
+			int selectionMask = (int)e.Argument;
+
             try
             {
-                relay.SetMonoflop(1 << 0, 15, 1500);
+				relay.SetMonoflop(selectionMask, 15, 500);
             }
             catch (TinkerforgeException)
             {
@@ -231,8 +239,11 @@ namespace GarageControl
             host.IsEnabled = false;
             port.IsEnabled = false;
             uid.IsEnabled = false;
-            connect.IsEnabled = false;
-            trigger.IsEnabled = false;
+			connect.IsEnabled = false;
+			a_on.IsEnabled = false;
+			a_off.IsEnabled = false;
+			b_on.IsEnabled = false;
+			b_off.IsEnabled = false;
 
             progress.Visibility = Visibility.Visible;
 
@@ -254,15 +265,33 @@ namespace GarageControl
             else
             {
                 connect.IsEnabled = false;
-                trigger.IsEnabled = false;
+				a_on.IsEnabled = false;
+				a_off.IsEnabled = false;
+				b_on.IsEnabled = false;
+				b_off.IsEnabled = false;
 
                 disconnectWorker.RunWorkerAsync();
             }
         }
 
-        private void Trigger_Click(object sender, RoutedEventArgs e)
-        {
-            triggerWorker.RunWorkerAsync();
-        }
+		private void Aon_Click(object sender, RoutedEventArgs e)
+		{
+			triggerWorker.RunWorkerAsync((1 << 0) | (1 << 2));
+		}
+
+		private void Aoff_Click(object sender, RoutedEventArgs e)
+		{
+			triggerWorker.RunWorkerAsync((1 << 0) | (1 << 3));
+		}
+
+		private void Bon_Click(object sender, RoutedEventArgs e)
+		{
+			triggerWorker.RunWorkerAsync((1 << 1) | (1 << 2));
+		}
+
+		private void Boff_Click(object sender, RoutedEventArgs e)
+		{
+			triggerWorker.RunWorkerAsync((1 << 1) | (1 << 3));
+		}
     }
 }

@@ -174,7 +174,7 @@ public class MainActivity extends Activity {
 	class TriggerAsyncTask extends AsyncTask<Void, Void, Void> {
 		protected Void doInBackground(Void... params) {
 			try {
-				relay.setMonoflop(1 << 0, 1 << 0, 1500);
+				relay.setMonoflop(1 << 0, 15, 1500);
 			} catch (TinkerforgeException e) {
 			}
 
