@@ -6,11 +6,11 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GarageControl")]
+[assembly: AssemblyTitle("Garage Control")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Tinkerforge GmbH")]
-[assembly: AssemblyProduct("GarageControl")]
+[assembly: AssemblyProduct("Garage Control")]
 [assembly: AssemblyCopyright("Tinkerforge GmbH 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
