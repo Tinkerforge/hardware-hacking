@@ -20,7 +20,7 @@ class RemoteSwitchGUI : Form
 
 	public RemoteSwitchGUI()
 	{
-		Text = "Remote Switch GUI 1.0.0";
+		Text = "Remote Switch GUI 1.0.1";
 		Size = new Size(300, 500);
 		MinimumSize = new Size(260, 200);
 
