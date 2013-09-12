@@ -101,7 +101,16 @@ namespace PowerOutletControl
             string[] argument = e.Argument as string[];
 
             ipcon = new IPConnection();
-            relay = new BrickletIndustrialQuadRelay(argument[2], ipcon);
+
+			try
+			{
+				relay = new BrickletIndustrialQuadRelay(argument[2], ipcon);
+			}
+			catch (ArgumentOutOfRangeException)
+			{
+				e.Result = ConnectResult.NO_DEVICE;
+				return;
+			}
 
             try
             {
@@ -111,7 +120,12 @@ namespace PowerOutletControl
             {
                 e.Result = ConnectResult.NO_CONNECTION;
                 return;
-            }
+			}
+			catch (ArgumentOutOfRangeException)
+			{
+				e.Result = ConnectResult.NO_CONNECTION;
+				return;
+			}
 
             try
             {
