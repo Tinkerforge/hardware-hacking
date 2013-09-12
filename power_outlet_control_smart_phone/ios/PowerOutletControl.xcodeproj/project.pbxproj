@@ -18,6 +18,8 @@
 		EDEDFCD017E2138800DA86C7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDEDFCCF17E2138800DA86C7 /* Default-568h@2x.png */; };
 		EDEDFCD317E2138800DA86C7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEDFCD217E2138800DA86C7 /* ViewController.m */; };
 		EDEDFCD617E2138800DA86C7 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEDFCD417E2138800DA86C7 /* ViewController.xib */; };
+		EDEDFD1217E21CAE00DA86C7 /* icon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = EDEDFD1117E21CAE00DA86C7 /* icon_114x114.png */; };
+		EDEDFD1517E21D8A00DA86C7 /* icon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = EDEDFD1417E21D8A00DA86C7 /* icon_57x57.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		EDEDFCD117E2138800DA86C7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		EDEDFCD217E2138800DA86C7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EDEDFCD517E2138800DA86C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		EDEDFD1117E21CAE00DA86C7 /* icon_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114x114.png; sourceTree = "<group>"; };
+		EDEDFD1417E21D8A00DA86C7 /* icon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57x57.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 		EDEDFCAD17E2138800DA86C7 = {
 			isa = PBXGroup;
 			children = (
+				EDEDFD1417E21D8A00DA86C7 /* icon_57x57.png */,
+				EDEDFD1117E21CAE00DA86C7 /* icon_114x114.png */,
 				EDEDFCBF17E2138800DA86C7 /* PowerOutletControl */,
 				EDEDFCB817E2138800DA86C7 /* Frameworks */,
 				EDEDFCB717E2138800DA86C7 /* Products */,
@@ -163,6 +169,8 @@
 				EDEDFCCE17E2138800DA86C7 /* Default@2x.png in Resources */,
 				EDEDFCD017E2138800DA86C7 /* Default-568h@2x.png in Resources */,
 				EDEDFCD617E2138800DA86C7 /* ViewController.xib in Resources */,
+				EDEDFD1217E21CAE00DA86C7 /* icon_114x114.png in Resources */,
+				EDEDFD1517E21D8A00DA86C7 /* icon_57x57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
