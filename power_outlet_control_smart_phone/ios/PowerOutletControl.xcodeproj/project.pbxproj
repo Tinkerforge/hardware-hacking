@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EDCFFE2F17E6FB2C004375E9 /* bricklet_industrial_quad_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = EDCFFE2B17E6FB2C004375E9 /* bricklet_industrial_quad_relay.c */; };
+		EDCFFE3017E6FB2C004375E9 /* ip_connection.c in Sources */ = {isa = PBXBuildFile; fileRef = EDCFFE2D17E6FB2C004375E9 /* ip_connection.c */; };
 		EDEDFCBA17E2138800DA86C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEDFCB917E2138800DA86C7 /* UIKit.framework */; };
 		EDEDFCBC17E2138800DA86C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEDFCBB17E2138800DA86C7 /* Foundation.framework */; };
 		EDEDFCBE17E2138800DA86C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEDFCBD17E2138800DA86C7 /* CoreGraphics.framework */; };
@@ -23,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EDCFFE2B17E6FB2C004375E9 /* bricklet_industrial_quad_relay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bricklet_industrial_quad_relay.c; path = PowerOutletControl/Tinkerforge/bricklet_industrial_quad_relay.c; sourceTree = "<group>"; };
+		EDCFFE2D17E6FB2C004375E9 /* ip_connection.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ip_connection.c; path = PowerOutletControl/Tinkerforge/ip_connection.c; sourceTree = "<group>"; };
+		EDCFFE2E17E6FB2C004375E9 /* ip_connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ip_connection.h; path = PowerOutletControl/Tinkerforge/ip_connection.h; sourceTree = "<group>"; };
+		EDCFFE3917E70184004375E9 /* bricklet_industrial_quad_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bricklet_industrial_quad_relay.h; path = PowerOutletControl/Tinkerforge/bricklet_industrial_quad_relay.h; sourceTree = "<group>"; };
 		EDEDFCB617E2138800DA86C7 /* Power Outlet Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Power Outlet Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDEDFCB917E2138800DA86C7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDEDFCBB17E2138800DA86C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -57,9 +63,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EDCFFE2A17E6FAF4004375E9 /* Tinkerforge */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFFE3917E70184004375E9 /* bricklet_industrial_quad_relay.h */,
+				EDCFFE2B17E6FB2C004375E9 /* bricklet_industrial_quad_relay.c */,
+				EDCFFE2D17E6FB2C004375E9 /* ip_connection.c */,
+				EDCFFE2E17E6FB2C004375E9 /* ip_connection.h */,
+			);
+			name = Tinkerforge;
+			sourceTree = "<group>";
+		};
 		EDEDFCAD17E2138800DA86C7 = {
 			isa = PBXGroup;
 			children = (
+				EDCFFE2A17E6FAF4004375E9 /* Tinkerforge */,
 				EDEDFD1417E21D8A00DA86C7 /* icon_57x57.png */,
 				EDEDFD1117E21CAE00DA86C7 /* icon_114x114.png */,
 				EDEDFCBF17E2138800DA86C7 /* PowerOutletControl */,
@@ -184,6 +202,8 @@
 				EDEDFCC617E2138800DA86C7 /* main.m in Sources */,
 				EDEDFCCA17E2138800DA86C7 /* AppDelegate.m in Sources */,
 				EDEDFCD317E2138800DA86C7 /* ViewController.m in Sources */,
+				EDCFFE2F17E6FB2C004375E9 /* bricklet_industrial_quad_relay.c in Sources */,
+				EDCFFE3017E6FB2C004375E9 /* ip_connection.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

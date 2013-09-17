@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EDCFFE3617E6FB86004375E9 /* bricklet_industrial_quad_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = EDCFFE3217E6FB86004375E9 /* bricklet_industrial_quad_relay.c */; };
+		EDCFFE3717E6FB86004375E9 /* ip_connection.c in Sources */ = {isa = PBXBuildFile; fileRef = EDCFFE3417E6FB86004375E9 /* ip_connection.c */; };
 		EDEDFCE917E2186900DA86C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEDFCE817E2186900DA86C7 /* UIKit.framework */; };
 		EDEDFCEB17E2186900DA86C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEDFCEA17E2186900DA86C7 /* Foundation.framework */; };
 		EDEDFCED17E2186900DA86C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEDFCEC17E2186900DA86C7 /* CoreGraphics.framework */; };
@@ -23,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EDCFFE3217E6FB86004375E9 /* bricklet_industrial_quad_relay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bricklet_industrial_quad_relay.c; path = GarageControl/Tinkerforge/bricklet_industrial_quad_relay.c; sourceTree = "<group>"; };
+		EDCFFE3317E6FB86004375E9 /* bricklet_industrial_quad_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bricklet_industrial_quad_relay.h; path = GarageControl/Tinkerforge/bricklet_industrial_quad_relay.h; sourceTree = "<group>"; };
+		EDCFFE3417E6FB86004375E9 /* ip_connection.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ip_connection.c; path = GarageControl/Tinkerforge/ip_connection.c; sourceTree = "<group>"; };
+		EDCFFE3517E6FB86004375E9 /* ip_connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ip_connection.h; path = GarageControl/Tinkerforge/ip_connection.h; sourceTree = "<group>"; };
 		EDEDFCE517E2186900DA86C7 /* Garage Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Garage Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDEDFCE817E2186900DA86C7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDEDFCEA17E2186900DA86C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -57,9 +63,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EDCFFE3117E6FB63004375E9 /* Tinkerforge */ = {
+			isa = PBXGroup;
+			children = (
+				EDCFFE3217E6FB86004375E9 /* bricklet_industrial_quad_relay.c */,
+				EDCFFE3317E6FB86004375E9 /* bricklet_industrial_quad_relay.h */,
+				EDCFFE3417E6FB86004375E9 /* ip_connection.c */,
+				EDCFFE3517E6FB86004375E9 /* ip_connection.h */,
+			);
+			name = Tinkerforge;
+			sourceTree = "<group>";
+		};
 		EDEDFCDC17E2186900DA86C7 = {
 			isa = PBXGroup;
 			children = (
+				EDCFFE3117E6FB63004375E9 /* Tinkerforge */,
 				EDEDFD0D17E21BBD00DA86C7 /* icon_114x114.png */,
 				EDEDFD0B17E21AC400DA86C7 /* icon_57x57.png */,
 				EDEDFCEE17E2186900DA86C7 /* GarageControl */,
@@ -184,6 +202,8 @@
 				EDEDFCF517E2186900DA86C7 /* main.m in Sources */,
 				EDEDFCF917E2186900DA86C7 /* AppDelegate.m in Sources */,
 				EDEDFD0217E2186900DA86C7 /* ViewController.m in Sources */,
+				EDCFFE3617E6FB86004375E9 /* bricklet_industrial_quad_relay.c in Sources */,
+				EDCFFE3717E6FB86004375E9 /* ip_connection.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
