@@ -29,6 +29,10 @@
 		EDCFFE2D17E6FB2C004375E9 /* ip_connection.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ip_connection.c; path = PowerOutletControl/Tinkerforge/ip_connection.c; sourceTree = "<group>"; };
 		EDCFFE2E17E6FB2C004375E9 /* ip_connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ip_connection.h; path = PowerOutletControl/Tinkerforge/ip_connection.h; sourceTree = "<group>"; };
 		EDCFFE3917E70184004375E9 /* bricklet_industrial_quad_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bricklet_industrial_quad_relay.h; path = PowerOutletControl/Tinkerforge/bricklet_industrial_quad_relay.h; sourceTree = "<group>"; };
+		EDDDCAD118104AAC00DEA5AE /* icon_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120x120.png; sourceTree = "<group>"; };
+		EDDDCAD218104ABD00DEA5AE /* icon_29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_29x29.png; sourceTree = "<group>"; };
+		EDDDCAD318104ACF00DEA5AE /* icon_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58x58.png; sourceTree = "<group>"; };
+		EDDDCAD418104ADC00DEA5AE /* icon_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80x80.png; sourceTree = "<group>"; };
 		EDEDFCB617E2138800DA86C7 /* Power Outlet Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Power Outlet Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDEDFCB917E2138800DA86C7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDEDFCBB17E2138800DA86C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -77,6 +81,10 @@
 		EDEDFCAD17E2138800DA86C7 = {
 			isa = PBXGroup;
 			children = (
+				EDDDCAD418104ADC00DEA5AE /* icon_80x80.png */,
+				EDDDCAD318104ACF00DEA5AE /* icon_58x58.png */,
+				EDDDCAD218104ABD00DEA5AE /* icon_29x29.png */,
+				EDDDCAD118104AAC00DEA5AE /* icon_120x120.png */,
 				EDCFFE2A17E6FAF4004375E9 /* Tinkerforge */,
 				EDEDFD1417E21D8A00DA86C7 /* icon_57x57.png */,
 				EDEDFD1117E21CAE00DA86C7 /* icon_114x114.png */,

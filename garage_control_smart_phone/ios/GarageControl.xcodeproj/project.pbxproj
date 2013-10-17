@@ -29,6 +29,10 @@
 		EDCFFE3317E6FB86004375E9 /* bricklet_industrial_quad_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bricklet_industrial_quad_relay.h; path = GarageControl/Tinkerforge/bricklet_industrial_quad_relay.h; sourceTree = "<group>"; };
 		EDCFFE3417E6FB86004375E9 /* ip_connection.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ip_connection.c; path = GarageControl/Tinkerforge/ip_connection.c; sourceTree = "<group>"; };
 		EDCFFE3517E6FB86004375E9 /* ip_connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ip_connection.h; path = GarageControl/Tinkerforge/ip_connection.h; sourceTree = "<group>"; };
+		EDDDCAD518104B1200DEA5AE /* icon_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120x120.png; sourceTree = "<group>"; };
+		EDDDCAD618104B2100DEA5AE /* icon_29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_29x29.png; sourceTree = "<group>"; };
+		EDDDCAD718104B2C00DEA5AE /* icon_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58x58.png; sourceTree = "<group>"; };
+		EDDDCAD818104B3900DEA5AE /* icon_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80x80.png; sourceTree = "<group>"; };
 		EDEDFCE517E2186900DA86C7 /* Garage Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Garage Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDEDFCE817E2186900DA86C7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDEDFCEA17E2186900DA86C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -77,6 +81,10 @@
 		EDEDFCDC17E2186900DA86C7 = {
 			isa = PBXGroup;
 			children = (
+				EDDDCAD818104B3900DEA5AE /* icon_80x80.png */,
+				EDDDCAD718104B2C00DEA5AE /* icon_58x58.png */,
+				EDDDCAD618104B2100DEA5AE /* icon_29x29.png */,
+				EDDDCAD518104B1200DEA5AE /* icon_120x120.png */,
 				EDCFFE3117E6FB63004375E9 /* Tinkerforge */,
 				EDEDFD0D17E21BBD00DA86C7 /* icon_114x114.png */,
 				EDEDFD0B17E21AC400DA86C7 /* icon_57x57.png */,
