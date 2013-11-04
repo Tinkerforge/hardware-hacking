@@ -181,22 +181,30 @@
 
 - (IBAction)aOnPressed:(id)sender
 {
-    industrial_quad_relay_set_monoflop(&relay, (1 << 0) | (1 << 2), 15, 500);
+    dispatch_async(queue, ^{
+        industrial_quad_relay_set_monoflop(&relay, (1 << 0) | (1 << 2), 15, 500);
+    });
 }
 
 - (IBAction)aOffPressed:(id)sender
 {
-    industrial_quad_relay_set_monoflop(&relay, (1 << 0) | (1 << 3), 15, 500);
+    dispatch_async(queue, ^{
+        industrial_quad_relay_set_monoflop(&relay, (1 << 0) | (1 << 3), 15, 500);
+    });
 }
 
 - (IBAction)bOnPressed:(id)sender
 {
-    industrial_quad_relay_set_monoflop(&relay, (1 << 1) | (1 << 2), 15, 500);
+    dispatch_async(queue, ^{
+        industrial_quad_relay_set_monoflop(&relay, (1 << 1) | (1 << 2), 15, 500);
+    });
 }
 
 - (IBAction)bOffPressed:(id)sender
 {
-    industrial_quad_relay_set_monoflop(&relay, (1 << 1) | (1 << 3), 15, 500);
+    dispatch_async(queue, ^{
+        industrial_quad_relay_set_monoflop(&relay, (1 << 1) | (1 << 3), 15, 500);
+    });
 }
 
 - (void)saveState

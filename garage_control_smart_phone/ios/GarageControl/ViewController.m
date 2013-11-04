@@ -166,7 +166,9 @@
 
 - (IBAction)triggerPressed:(id)sender
 {
-    industrial_quad_relay_set_monoflop(&relay, (1 << 0), (1 << 0), 1500);
+    dispatch_async(queue, ^{
+        industrial_quad_relay_set_monoflop(&relay, (1 << 0), (1 << 0), 1500);
+    });
 }
 
 - (void)saveState
