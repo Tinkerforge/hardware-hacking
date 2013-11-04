@@ -19,7 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
 
     queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     connected = NO;
@@ -103,7 +103,7 @@
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Could not find Industrial Quad Relay Bricklet [%@]", uid] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Retry", nil];
                 [alert show];
             });
-            
+
             return;
         }
 
