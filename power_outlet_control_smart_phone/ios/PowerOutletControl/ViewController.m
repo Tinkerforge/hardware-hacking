@@ -44,7 +44,8 @@
     NSString *uid = uidTextField.text;
 
     if ([host length] == 0 || [port length] == 0 || [uid length] == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Host/Port/UID cannot be empty" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Host/Port/UID cannot be empty"
+                                                  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
         [alert show];
         return;
     }
@@ -53,7 +54,8 @@
     NSString *reformatedPort = [NSString stringWithFormat:@"%d", portNumber];
 
     if (portNumber < 1 || portNumber > 65535 || ![port isEqualToString:reformatedPort]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Port number is invalid" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Port number is invalid"
+                                                  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
         [alert show];
         return;
     }
@@ -80,7 +82,9 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [indicator setHidden:YES];
 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Could not connect to %@:%d", host, portNumber] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Retry", nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                          message:[NSString stringWithFormat:@"Could not connect to %@:%d", host, portNumber]
+                                                          delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Retry", nil];
                 [alert show];
             });
 
@@ -100,7 +104,9 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [indicator setHidden:YES];
 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Could not find Industrial Quad Relay Bricklet [%@]", uid] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Retry", nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                          message:[NSString stringWithFormat:@"Could not find Industrial Quad Relay Bricklet [%@]", uid]
+                                                          delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Retry", nil];
                 [alert show];
             });
 
