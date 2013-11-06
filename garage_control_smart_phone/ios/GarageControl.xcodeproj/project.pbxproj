@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EDBB8483182A78BC001B27CB /* icon_29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBB847D182A78BC001B27CB /* icon_29x29.png */; };
+		EDBB8484182A78BC001B27CB /* icon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBB847E182A78BC001B27CB /* icon_57x57.png */; };
+		EDBB8485182A78BC001B27CB /* icon_58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBB847F182A78BC001B27CB /* icon_58x58.png */; };
+		EDBB8486182A78BC001B27CB /* icon_80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBB8480182A78BC001B27CB /* icon_80x80.png */; };
+		EDBB8487182A78BC001B27CB /* icon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBB8481182A78BC001B27CB /* icon_114x114.png */; };
+		EDBB8488182A78BC001B27CB /* icon_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBB8482182A78BC001B27CB /* icon_120x120.png */; };
 		EDCFFE3617E6FB86004375E9 /* bricklet_industrial_quad_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = EDCFFE3217E6FB86004375E9 /* bricklet_industrial_quad_relay.c */; };
 		EDCFFE3717E6FB86004375E9 /* ip_connection.c in Sources */ = {isa = PBXBuildFile; fileRef = EDCFFE3417E6FB86004375E9 /* ip_connection.c */; };
 		EDEDFCE917E2186900DA86C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEDFCE817E2186900DA86C7 /* UIKit.framework */; };
@@ -20,19 +26,19 @@
 		EDEDFCFF17E2186900DA86C7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDEDFCFE17E2186900DA86C7 /* Default-568h@2x.png */; };
 		EDEDFD0217E2186900DA86C7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEDFD0117E2186900DA86C7 /* ViewController.m */; };
 		EDEDFD0517E2186900DA86C7 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEDFD0317E2186900DA86C7 /* ViewController.xib */; };
-		EDEDFD0C17E21AC400DA86C7 /* icon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = EDEDFD0B17E21AC400DA86C7 /* icon_57x57.png */; };
-		EDEDFD0E17E21BBD00DA86C7 /* icon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = EDEDFD0D17E21BBD00DA86C7 /* icon_114x114.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EDBB847D182A78BC001B27CB /* icon_29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_29x29.png; sourceTree = "<group>"; };
+		EDBB847E182A78BC001B27CB /* icon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57x57.png; sourceTree = "<group>"; };
+		EDBB847F182A78BC001B27CB /* icon_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58x58.png; sourceTree = "<group>"; };
+		EDBB8480182A78BC001B27CB /* icon_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80x80.png; sourceTree = "<group>"; };
+		EDBB8481182A78BC001B27CB /* icon_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114x114.png; sourceTree = "<group>"; };
+		EDBB8482182A78BC001B27CB /* icon_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120x120.png; sourceTree = "<group>"; };
 		EDCFFE3217E6FB86004375E9 /* bricklet_industrial_quad_relay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bricklet_industrial_quad_relay.c; path = GarageControl/Tinkerforge/bricklet_industrial_quad_relay.c; sourceTree = "<group>"; };
 		EDCFFE3317E6FB86004375E9 /* bricklet_industrial_quad_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bricklet_industrial_quad_relay.h; path = GarageControl/Tinkerforge/bricklet_industrial_quad_relay.h; sourceTree = "<group>"; };
 		EDCFFE3417E6FB86004375E9 /* ip_connection.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ip_connection.c; path = GarageControl/Tinkerforge/ip_connection.c; sourceTree = "<group>"; };
 		EDCFFE3517E6FB86004375E9 /* ip_connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ip_connection.h; path = GarageControl/Tinkerforge/ip_connection.h; sourceTree = "<group>"; };
-		EDDDCAD518104B1200DEA5AE /* icon_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120x120.png; sourceTree = "<group>"; };
-		EDDDCAD618104B2100DEA5AE /* icon_29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_29x29.png; sourceTree = "<group>"; };
-		EDDDCAD718104B2C00DEA5AE /* icon_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58x58.png; sourceTree = "<group>"; };
-		EDDDCAD818104B3900DEA5AE /* icon_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80x80.png; sourceTree = "<group>"; };
 		EDEDFCE517E2186900DA86C7 /* Garage Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Garage Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDEDFCE817E2186900DA86C7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDEDFCEA17E2186900DA86C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -49,8 +55,6 @@
 		EDEDFD0017E2186900DA86C7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		EDEDFD0117E2186900DA86C7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EDEDFD0417E2186900DA86C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		EDEDFD0B17E21AC400DA86C7 /* icon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57x57.png; sourceTree = "<group>"; };
-		EDEDFD0D17E21BBD00DA86C7 /* icon_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114x114.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +85,7 @@
 		EDEDFCDC17E2186900DA86C7 = {
 			isa = PBXGroup;
 			children = (
-				EDDDCAD818104B3900DEA5AE /* icon_80x80.png */,
-				EDDDCAD718104B2C00DEA5AE /* icon_58x58.png */,
-				EDDDCAD618104B2100DEA5AE /* icon_29x29.png */,
-				EDDDCAD518104B1200DEA5AE /* icon_120x120.png */,
 				EDCFFE3117E6FB63004375E9 /* Tinkerforge */,
-				EDEDFD0D17E21BBD00DA86C7 /* icon_114x114.png */,
-				EDEDFD0B17E21AC400DA86C7 /* icon_57x57.png */,
 				EDEDFCEE17E2186900DA86C7 /* GarageControl */,
 				EDEDFCE717E2186900DA86C7 /* Frameworks */,
 				EDEDFCE617E2186900DA86C7 /* Products */,
@@ -128,6 +126,12 @@
 		EDEDFCEF17E2186900DA86C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EDBB847D182A78BC001B27CB /* icon_29x29.png */,
+				EDBB847E182A78BC001B27CB /* icon_57x57.png */,
+				EDBB847F182A78BC001B27CB /* icon_58x58.png */,
+				EDBB8480182A78BC001B27CB /* icon_80x80.png */,
+				EDBB8481182A78BC001B27CB /* icon_114x114.png */,
+				EDBB8482182A78BC001B27CB /* icon_120x120.png */,
 				EDEDFCF017E2186900DA86C7 /* GarageControl-Info.plist */,
 				EDEDFCF117E2186900DA86C7 /* InfoPlist.strings */,
 				EDEDFCF417E2186900DA86C7 /* main.m */,
@@ -198,10 +202,14 @@
 				EDEDFCF317E2186900DA86C7 /* InfoPlist.strings in Resources */,
 				EDEDFCFB17E2186900DA86C7 /* Default.png in Resources */,
 				EDEDFCFD17E2186900DA86C7 /* Default@2x.png in Resources */,
+				EDBB8485182A78BC001B27CB /* icon_58x58.png in Resources */,
+				EDBB8483182A78BC001B27CB /* icon_29x29.png in Resources */,
+				EDBB8488182A78BC001B27CB /* icon_120x120.png in Resources */,
 				EDEDFCFF17E2186900DA86C7 /* Default-568h@2x.png in Resources */,
+				EDBB8486182A78BC001B27CB /* icon_80x80.png in Resources */,
+				EDBB8487182A78BC001B27CB /* icon_114x114.png in Resources */,
+				EDBB8484182A78BC001B27CB /* icon_57x57.png in Resources */,
 				EDEDFD0517E2186900DA86C7 /* ViewController.xib in Resources */,
-				EDEDFD0C17E21AC400DA86C7 /* icon_57x57.png in Resources */,
-				EDEDFD0E17E21BBD00DA86C7 /* icon_114x114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,8 +262,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tinkerforge GmbH (K39N76HTZ4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tinkerforge GmbH (K39N76HTZ4)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -269,8 +277,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				ONLY_ACTIVE_ARCH = NO;
+				PROVISIONING_PROFILE = "4CE1245A-E387-4CE6-8AB5-F26B0B7E1444";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -287,16 +295,17 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tinkerforge GmbH (K39N76HTZ4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tinkerforge GmbH (K39N76HTZ4)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4CE1245A-E387-4CE6-8AB5-F26B0B7E1444";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -305,13 +314,13 @@
 		EDEDFD0917E2186900DA86C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tinkerforge GmbH (K39N76HTZ4)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GarageControl/GarageControl-Prefix.pch";
 				INFOPLIST_FILE = "GarageControl/GarageControl-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "Garage Control";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4CE1245A-E387-4CE6-8AB5-F26B0B7E1444";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -319,13 +328,13 @@
 		EDEDFD0A17E2186900DA86C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tinkerforge GmbH (K39N76HTZ4)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GarageControl/GarageControl-Prefix.pch";
 				INFOPLIST_FILE = "GarageControl/GarageControl-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "Garage Control";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4CE1245A-E387-4CE6-8AB5-F26B0B7E1444";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

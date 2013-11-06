@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		EDCFFE2F17E6FB2C004375E9 /* bricklet_industrial_quad_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = EDCFFE2B17E6FB2C004375E9 /* bricklet_industrial_quad_relay.c */; };
 		EDCFFE3017E6FB2C004375E9 /* ip_connection.c in Sources */ = {isa = PBXBuildFile; fileRef = EDCFFE2D17E6FB2C004375E9 /* ip_connection.c */; };
+		EDE2FDD5182A84BF002CFC1B /* icon_29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = EDE2FDCF182A84BF002CFC1B /* icon_29x29.png */; };
+		EDE2FDD6182A84BF002CFC1B /* icon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = EDE2FDD0182A84BF002CFC1B /* icon_57x57.png */; };
+		EDE2FDD7182A84BF002CFC1B /* icon_58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = EDE2FDD1182A84BF002CFC1B /* icon_58x58.png */; };
+		EDE2FDD8182A84BF002CFC1B /* icon_80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = EDE2FDD2182A84BF002CFC1B /* icon_80x80.png */; };
+		EDE2FDD9182A84BF002CFC1B /* icon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = EDE2FDD3182A84BF002CFC1B /* icon_114x114.png */; };
+		EDE2FDDA182A84BF002CFC1B /* icon_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = EDE2FDD4182A84BF002CFC1B /* icon_120x120.png */; };
 		EDEDFCBA17E2138800DA86C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEDFCB917E2138800DA86C7 /* UIKit.framework */; };
 		EDEDFCBC17E2138800DA86C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEDFCBB17E2138800DA86C7 /* Foundation.framework */; };
 		EDEDFCBE17E2138800DA86C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEDFCBD17E2138800DA86C7 /* CoreGraphics.framework */; };
@@ -20,8 +26,6 @@
 		EDEDFCD017E2138800DA86C7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDEDFCCF17E2138800DA86C7 /* Default-568h@2x.png */; };
 		EDEDFCD317E2138800DA86C7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEDFCD217E2138800DA86C7 /* ViewController.m */; };
 		EDEDFCD617E2138800DA86C7 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEDFCD417E2138800DA86C7 /* ViewController.xib */; };
-		EDEDFD1217E21CAE00DA86C7 /* icon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = EDEDFD1117E21CAE00DA86C7 /* icon_114x114.png */; };
-		EDEDFD1517E21D8A00DA86C7 /* icon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = EDEDFD1417E21D8A00DA86C7 /* icon_57x57.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,10 +33,12 @@
 		EDCFFE2D17E6FB2C004375E9 /* ip_connection.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ip_connection.c; path = PowerOutletControl/Tinkerforge/ip_connection.c; sourceTree = "<group>"; };
 		EDCFFE2E17E6FB2C004375E9 /* ip_connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ip_connection.h; path = PowerOutletControl/Tinkerforge/ip_connection.h; sourceTree = "<group>"; };
 		EDCFFE3917E70184004375E9 /* bricklet_industrial_quad_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bricklet_industrial_quad_relay.h; path = PowerOutletControl/Tinkerforge/bricklet_industrial_quad_relay.h; sourceTree = "<group>"; };
-		EDDDCAD118104AAC00DEA5AE /* icon_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120x120.png; sourceTree = "<group>"; };
-		EDDDCAD218104ABD00DEA5AE /* icon_29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_29x29.png; sourceTree = "<group>"; };
-		EDDDCAD318104ACF00DEA5AE /* icon_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58x58.png; sourceTree = "<group>"; };
-		EDDDCAD418104ADC00DEA5AE /* icon_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80x80.png; sourceTree = "<group>"; };
+		EDE2FDCF182A84BF002CFC1B /* icon_29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_29x29.png; sourceTree = "<group>"; };
+		EDE2FDD0182A84BF002CFC1B /* icon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57x57.png; sourceTree = "<group>"; };
+		EDE2FDD1182A84BF002CFC1B /* icon_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58x58.png; sourceTree = "<group>"; };
+		EDE2FDD2182A84BF002CFC1B /* icon_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80x80.png; sourceTree = "<group>"; };
+		EDE2FDD3182A84BF002CFC1B /* icon_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114x114.png; sourceTree = "<group>"; };
+		EDE2FDD4182A84BF002CFC1B /* icon_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120x120.png; sourceTree = "<group>"; };
 		EDEDFCB617E2138800DA86C7 /* Power Outlet Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Power Outlet Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDEDFCB917E2138800DA86C7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDEDFCBB17E2138800DA86C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -49,8 +55,6 @@
 		EDEDFCD117E2138800DA86C7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		EDEDFCD217E2138800DA86C7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EDEDFCD517E2138800DA86C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		EDEDFD1117E21CAE00DA86C7 /* icon_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114x114.png; sourceTree = "<group>"; };
-		EDEDFD1417E21D8A00DA86C7 /* icon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57x57.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +85,7 @@
 		EDEDFCAD17E2138800DA86C7 = {
 			isa = PBXGroup;
 			children = (
-				EDDDCAD418104ADC00DEA5AE /* icon_80x80.png */,
-				EDDDCAD318104ACF00DEA5AE /* icon_58x58.png */,
-				EDDDCAD218104ABD00DEA5AE /* icon_29x29.png */,
-				EDDDCAD118104AAC00DEA5AE /* icon_120x120.png */,
 				EDCFFE2A17E6FAF4004375E9 /* Tinkerforge */,
-				EDEDFD1417E21D8A00DA86C7 /* icon_57x57.png */,
-				EDEDFD1117E21CAE00DA86C7 /* icon_114x114.png */,
 				EDEDFCBF17E2138800DA86C7 /* PowerOutletControl */,
 				EDEDFCB817E2138800DA86C7 /* Frameworks */,
 				EDEDFCB717E2138800DA86C7 /* Products */,
@@ -128,6 +126,12 @@
 		EDEDFCC017E2138800DA86C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EDE2FDCF182A84BF002CFC1B /* icon_29x29.png */,
+				EDE2FDD0182A84BF002CFC1B /* icon_57x57.png */,
+				EDE2FDD1182A84BF002CFC1B /* icon_58x58.png */,
+				EDE2FDD2182A84BF002CFC1B /* icon_80x80.png */,
+				EDE2FDD3182A84BF002CFC1B /* icon_114x114.png */,
+				EDE2FDD4182A84BF002CFC1B /* icon_120x120.png */,
 				EDEDFCC117E2138800DA86C7 /* PowerOutletControl-Info.plist */,
 				EDEDFCC217E2138800DA86C7 /* InfoPlist.strings */,
 				EDEDFCC517E2138800DA86C7 /* main.m */,
@@ -198,10 +202,14 @@
 				EDEDFCC417E2138800DA86C7 /* InfoPlist.strings in Resources */,
 				EDEDFCCC17E2138800DA86C7 /* Default.png in Resources */,
 				EDEDFCCE17E2138800DA86C7 /* Default@2x.png in Resources */,
+				EDE2FDD7182A84BF002CFC1B /* icon_58x58.png in Resources */,
+				EDE2FDD5182A84BF002CFC1B /* icon_29x29.png in Resources */,
+				EDE2FDDA182A84BF002CFC1B /* icon_120x120.png in Resources */,
 				EDEDFCD017E2138800DA86C7 /* Default-568h@2x.png in Resources */,
+				EDE2FDD8182A84BF002CFC1B /* icon_80x80.png in Resources */,
+				EDE2FDD9182A84BF002CFC1B /* icon_114x114.png in Resources */,
+				EDE2FDD6182A84BF002CFC1B /* icon_57x57.png in Resources */,
 				EDEDFCD617E2138800DA86C7 /* ViewController.xib in Resources */,
-				EDEDFD1217E21CAE00DA86C7 /* icon_114x114.png in Resources */,
-				EDEDFD1517E21D8A00DA86C7 /* icon_57x57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,8 +262,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tinkerforge GmbH (K39N76HTZ4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tinkerforge GmbH (K39N76HTZ4)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -269,8 +277,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				ONLY_ACTIVE_ARCH = NO;
+				PROVISIONING_PROFILE = "4CE1245A-E387-4CE6-8AB5-F26B0B7E1444";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -287,16 +295,17 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tinkerforge GmbH (K39N76HTZ4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tinkerforge GmbH (K39N76HTZ4)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4CE1245A-E387-4CE6-8AB5-F26B0B7E1444";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -305,7 +314,7 @@
 		EDEDFCDA17E2138800DA86C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tinkerforge GmbH (K39N76HTZ4)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PowerOutletControl/PowerOutletControl-Prefix.pch";
 				INFOPLIST_FILE = "PowerOutletControl/PowerOutletControl-Info.plist";
@@ -317,7 +326,7 @@
 		EDEDFCDB17E2138800DA86C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tinkerforge GmbH (K39N76HTZ4)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PowerOutletControl/PowerOutletControl-Prefix.pch";
 				INFOPLIST_FILE = "PowerOutletControl/PowerOutletControl-Info.plist";
