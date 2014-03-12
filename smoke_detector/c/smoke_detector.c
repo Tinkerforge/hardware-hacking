@@ -12,6 +12,9 @@ typedef struct {
 } SmokeDetector;
 
 void cb_interrupt(uint16_t interrupt_mask, uint16_t value_mask, void *user_data) {
+	// avoid unused parameter warning
+	(void)interrupt_mask; (void)user_data;
+
 	if(value_mask > 0) {
 		printf("Fire! Fire!\n");
 	}
@@ -40,6 +43,9 @@ void cb_enumerate(const char *uid, const char *connected_uid,
                   uint8_t firmware_version[3], uint16_t device_identifier,
                   uint8_t enumeration_type, void *user_data) {
 	SmokeDetector *sd = (SmokeDetector *)user_data;
+
+	// avoid unused parameter warning
+	(void)connected_uid; (void)position; (void)hardware_version; (void)firmware_version;
 
 	if(enumeration_type == IPCON_ENUMERATION_TYPE_CONNECTED ||
 	   enumeration_type == IPCON_ENUMERATION_TYPE_AVAILABLE) {
