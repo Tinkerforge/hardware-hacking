@@ -58,8 +58,8 @@ class SmokeListener implements IPConnection.EnumerateListener,
 }
 
 public class SmokeDetector {
-	private static final String host = "localhost";
-	private static final int port = 4223;
+	private static final String HOST = "localhost";
+	private static final int PORT = 4223;
 	private static IPConnection ipcon = null;
 	private static SmokeListener smokeListener = null;
 
@@ -68,7 +68,7 @@ public class SmokeDetector {
 
 		while(true) {
 			try {
-				ipcon.connect(host, port);
+				ipcon.connect(HOST, PORT);
 				break;
 			} catch(java.net.UnknownHostException e) {
 			} catch(java.io.IOException e) {

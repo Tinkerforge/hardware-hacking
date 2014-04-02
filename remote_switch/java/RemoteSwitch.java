@@ -2,8 +2,8 @@ import com.tinkerforge.IPConnection;
 import com.tinkerforge.BrickletIndustrialQuadRelay;
 
 public class RemoteSwitch {
-	private static final String host = "localhost";
-	private static final int port = 4223;
+	private static final String HOST = "localhost";
+	private static final int PORT = 4223;
 	private static final String UID = "ctG"; // Change to your UID
 	private static final int VALUE_A_ON  = (1 << 0) | (1 << 2); // Pin 0 and 2 high
 	private static final int VALUE_A_OFF = (1 << 0) | (1 << 3); // Pin 0 and 3 high
@@ -16,7 +16,7 @@ public class RemoteSwitch {
 		IPConnection ipcon = new IPConnection(); // Create IP connection
 		BrickletIndustrialQuadRelay iqr = new BrickletIndustrialQuadRelay(UID, ipcon); // Create device object
 
-		ipcon.connect(host, port); // Connect to brickd
+		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
 		iqr.setMonoflop(VALUE_A_ON, 15, 1500); // Set pins to high for 1.5 seconds
