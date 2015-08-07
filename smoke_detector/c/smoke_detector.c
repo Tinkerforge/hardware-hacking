@@ -67,7 +67,7 @@ void cb_enumerate(const char *uid, const char *connected_uid,
 	}
 }
 
-int main() {
+int main(void) {
 	SmokeDetector sd;
 
 	ipcon_create(&sd.ipcon);
