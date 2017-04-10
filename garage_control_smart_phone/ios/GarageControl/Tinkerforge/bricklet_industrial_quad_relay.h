@@ -1,11 +1,11 @@
 /* ***********************************************************
- * This file was automatically generated on 2013-09-11.      *
+ * This file was automatically generated on 2017-01-25.      *
  *                                                           *
- * Bindings Version 2.0.11                                    *
+ * C/C++ Bindings Version 2.1.13                             *
  *                                                           *
  * If you have a bugfix for this file and want to commit it, *
  * please fix the bug in the generator. You can find a link  *
- * to the generator git on tinkerforge.com                   *
+ * to the generators git repository on tinkerforge.com       *
  *************************************************************/
 
 #ifndef BRICKLET_INDUSTRIAL_QUAD_RELAY_H
@@ -13,14 +13,18 @@
 
 #include "ip_connection.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
- * \defgroup BrickletIndustrialQuadRelay IndustrialQuadRelay Bricklet
+ * \defgroup BrickletIndustrialQuadRelay Industrial Quad Relay Bricklet
  */
 
 /**
  * \ingroup BrickletIndustrialQuadRelay
  *
- * Device for controlling up to 4 Solid State Relays
+ * 4 galvanically isolated solid state relays
  */
 typedef Device IndustrialQuadRelay;
 
@@ -84,13 +88,20 @@ typedef Device IndustrialQuadRelay;
 /**
  * \ingroup BrickletIndustrialQuadRelay
  *
- * This constant is used to identify a IndustrialQuadRelay Bricklet.
+ * This constant is used to identify a Industrial Quad Relay Bricklet.
  *
  * The {@link industrial_quad_relay_get_identity} function and the
  * {@link IPCON_CALLBACK_ENUMERATE} callback of the IP Connection have a
  * \c device_identifier parameter to specify the Brick's or Bricklet's type.
  */
 #define INDUSTRIAL_QUAD_RELAY_DEVICE_IDENTIFIER 225
+
+/**
+ * \ingroup BrickletIndustrialQuadRelay
+ *
+ * This constant represents the display name of a Industrial Quad Relay Bricklet.
+ */
+#define INDUSTRIAL_QUAD_RELAY_DEVICE_DISPLAY_NAME "Industrial Quad Relay Bricklet"
 
 /**
  * \ingroup BrickletIndustrialQuadRelay
@@ -173,12 +184,11 @@ int industrial_quad_relay_get_api_version(IndustrialQuadRelay *industrial_quad_r
 /**
  * \ingroup BrickletIndustrialQuadRelay
  *
- * Sets the output value with a bitmask. The bitmask
- * is 16 bit long, *true* refers to a closed relay and *false* refers to 
- * an open relay.
+ * Sets the output value with a bitmask (16bit). A 1 in the bitmask means relay
+ * closed and a 0 means relay open.
  * 
- * For example: The value 0b0000000000000011 will close the relay 
- * of pins 0-1 and open the other pins.
+ * For example: The value 3 or 0b0011 will close the relay of pins 0-1 and open
+ * the other pins.
  * 
  * If no groups are used (see {@link industrial_quad_relay_set_group}), the pins correspond to the
  * markings on the Quad Relay Bricklet.
@@ -203,15 +213,14 @@ int industrial_quad_relay_get_value(IndustrialQuadRelay *industrial_quad_relay, 
  * bitmask.
  * 
  * The second parameter is a bitmask with the desired value of the specified
- * pins (*true* means relay closed and *false* means relay open).
+ * pins. A 1 in the bitmask means relay closed and a 0 means relay open.
  * 
  * The third parameter indicates the time (in ms) that the pins should hold
  * the value.
  * 
- * If this function is called with the parameters 
- * ((1 << 0) | (1 << 3), (1 << 0), 1500):
- * Pin 0 will close and pin 3 will open. In 1.5s pin 0 will open and pin
- * 3 will close again.
+ * If this function is called with the parameters (9, 1, 1500) or
+ * (0b1001, 0b0001, 1500): Pin 0 will close and pin 3 will open. In 1.5s pin 0
+ * will open and pin 3 will close again.
  * 
  * A monoflop can be used as a fail-safe mechanism. For example: Lets assume you
  * have a RS485 bus and a Quad Relay Bricklet connected to one of the slave
@@ -245,7 +254,7 @@ int industrial_quad_relay_get_monoflop(IndustrialQuadRelay *industrial_quad_rela
  * not be used.
  * 
  * For example: If you have two Quad Relay Bricklets connected to port A and
- * port B respectively, you could call with "['a', 'b', 'n', 'n']".
+ * port B respectively, you could call with ``['a', 'b', 'n', 'n']``.
  * 
  * Now the pins on the Quad Relay on port A are assigned to 0-3 and the
  * pins on the Quad Relay on port B are assigned to 4-7. It is now possible
@@ -264,7 +273,7 @@ int industrial_quad_relay_get_group(IndustrialQuadRelay *industrial_quad_relay, 
  * \ingroup BrickletIndustrialQuadRelay
  *
  * Returns a bitmask of ports that are available for grouping. For example the
- * value 0b0101 means: Port *A* and Port *C* are connected to Bricklets that
+ * value 5 or 0b0101 means: Port A and port C are connected to Bricklets that
  * can be grouped together.
  */
 int industrial_quad_relay_get_available_for_group(IndustrialQuadRelay *industrial_quad_relay, uint8_t *ret_available);
@@ -276,8 +285,8 @@ int industrial_quad_relay_get_available_for_group(IndustrialQuadRelay *industria
  * The bitmask is 16 bit long, *true* refers to a closed relay and 
  * *false* refers to an open relay.
  * 
- * For example: The values 00b0000000000000011, b0000000000000001 will close 
- * the relay of pin 0, open the relay of pin 1 and leave the others untouched.
+ * For example: The values (3, 1) or (0b0011, 0b0001) will close the relay of
+ * pin 0, open the relay of pin 1 and leave the others untouched.
  * 
  * If no groups are used (see {@link industrial_quad_relay_set_group}), the pins correspond to the
  * markings on the Quad Relay Bricklet.
@@ -285,8 +294,6 @@ int industrial_quad_relay_get_available_for_group(IndustrialQuadRelay *industria
  * If groups are used, the pins correspond to the element in the group.
  * Element 1 in the group will get pins 0-3, element 2 pins 4-7, element 3
  * pins 8-11 and element 4 pins 12-15.
- * 
- * .. versionadded:: 2.0.0~(Plugin)
  */
 int industrial_quad_relay_set_selected_values(IndustrialQuadRelay *industrial_quad_relay, uint16_t selection_mask, uint16_t value_mask);
 
@@ -299,10 +306,13 @@ int industrial_quad_relay_set_selected_values(IndustrialQuadRelay *industrial_qu
  * 
  * The position can be 'a', 'b', 'c' or 'd'.
  * 
- * The device identifiers can be found :ref:`here <device_identifier>`.
- * 
- * .. versionadded:: 2.0.0~(Plugin)
+ * The device identifier numbers can be found :ref:`here <device_identifier>`.
+ * |device_identifier_constant|
  */
 int industrial_quad_relay_get_identity(IndustrialQuadRelay *industrial_quad_relay, char ret_uid[8], char ret_connected_uid[8], char *ret_position, uint8_t ret_hardware_version[3], uint8_t ret_firmware_version[3], uint16_t *ret_device_identifier);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

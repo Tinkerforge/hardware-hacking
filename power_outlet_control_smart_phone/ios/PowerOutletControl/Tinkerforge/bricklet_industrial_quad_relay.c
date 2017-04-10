@@ -1,11 +1,11 @@
 /* ***********************************************************
- * This file was automatically generated on 2013-09-11.      *
+ * This file was automatically generated on 2017-01-25.      *
  *                                                           *
- * Bindings Version 2.0.11                                    *
+ * C/C++ Bindings Version 2.1.13                             *
  *                                                           *
  * If you have a bugfix for this file and want to commit it, *
  * please fix the bug in the generator. You can find a link  *
- * to the generator git on tinkerforge.com                   *
+ * to the generators git repository on tinkerforge.com       *
  *************************************************************/
 
 
@@ -14,6 +14,10 @@
 #include "bricklet_industrial_quad_relay.h"
 
 #include <string.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 
 
@@ -24,7 +28,13 @@ typedef void (*MonoflopDoneCallbackFunction)(uint16_t, uint16_t, void *);
 	#pragma pack(1)
 	#define ATTRIBUTE_PACKED
 #elif defined __GNUC__
-	#define ATTRIBUTE_PACKED __attribute__((packed))
+	#ifdef _WIN32
+		// workaround struct packing bug in GCC 4.7 on Windows
+		// http://gcc.gnu.org/bugzilla/show_bug.cgi?id=52991
+		#define ATTRIBUTE_PACKED __attribute__((gcc_struct, packed))
+	#else
+		#define ATTRIBUTE_PACKED __attribute__((packed))
+	#endif
 #else
 	#error unknown compiler, do not know how to enable struct packing
 #endif
@@ -154,7 +164,7 @@ void industrial_quad_relay_create(IndustrialQuadRelay *industrial_quad_relay, co
 }
 
 void industrial_quad_relay_destroy(IndustrialQuadRelay *industrial_quad_relay) {
-	device_destroy(industrial_quad_relay);
+	device_release(industrial_quad_relay->p);
 }
 
 int industrial_quad_relay_get_response_expected(IndustrialQuadRelay *industrial_quad_relay, uint8_t function_id, bool *ret_response_expected) {
@@ -377,8 +387,8 @@ int industrial_quad_relay_get_identity(IndustrialQuadRelay *industrial_quad_rela
 	if (ret < 0) {
 		return ret;
 	}
-	strncpy(ret_uid, response.uid, 8);
-	strncpy(ret_connected_uid, response.connected_uid, 8);
+	memcpy(ret_uid, response.uid, 8);
+	memcpy(ret_connected_uid, response.connected_uid, 8);
 	*ret_position = response.position;
 	memcpy(ret_hardware_version, response.hardware_version, 3 * sizeof(uint8_t));
 	memcpy(ret_firmware_version, response.firmware_version, 3 * sizeof(uint8_t));
@@ -388,3 +398,7 @@ int industrial_quad_relay_get_identity(IndustrialQuadRelay *industrial_quad_rela
 
 	return ret;
 }
+
+#ifdef __cplusplus
+}
+#endif
