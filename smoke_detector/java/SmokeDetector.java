@@ -70,9 +70,7 @@ public class SmokeDetector {
 			try {
 				ipcon.connect(HOST, PORT);
 				break;
-			} catch(java.net.UnknownHostException e) {
-			} catch(java.io.IOException e) {
-			} catch(com.tinkerforge.AlreadyConnectedException e) {
+			} catch(com.tinkerforge.TinkerforgeException e) {
 			}
 
 			try {
