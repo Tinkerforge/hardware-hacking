@@ -54,7 +54,7 @@ void cb_enumerate(const char *uid, const char *connected_uid,
 			industrial_digital_in_4_set_debounce_period(&sd->idi4, 10000);
 			industrial_digital_in_4_register_callback(&sd->idi4,
 			                                          INDUSTRIAL_DIGITAL_IN_4_CALLBACK_INTERRUPT,
-			                                          (void *)cb_interrupt,
+			                                          (void (*)(void))cb_interrupt,
 			                                          (void *)sd);
 
 			int rc = industrial_digital_in_4_set_interrupt(&sd->idi4, 15);
@@ -84,12 +84,12 @@ int main(void) {
 
 	ipcon_register_callback(&sd.ipcon,
 	                        IPCON_CALLBACK_ENUMERATE,
-	                        (void *)cb_enumerate,
+	                        (void (*)(void))cb_enumerate,
 	                        (void *)&sd);
 
 	ipcon_register_callback(&sd.ipcon,
 	                        IPCON_CALLBACK_CONNECTED,
-	                        (void *)cb_connected,
+	                        (void (*)(void))cb_connected,
 	                        (void *)&sd);
 
 	while(true) {
